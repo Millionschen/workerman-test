@@ -9,7 +9,7 @@
 namespace Workerman\Exception;
 
 
-class DatabaseException
+class DatabaseException extends UserException
 {
 
 }
