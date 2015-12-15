@@ -75,7 +75,6 @@ class Json
     {
         $data = unpack("Npack_len/Nuser_id/Ncmd/Ntimestamp", $buffer);
         $data['verify'] = substr($buffer, self::HEAD_LEN, self::VERIFY_LEN);
-        echo substr($buffer, self::HEAD_LEN+self::VERIFY_LEN);
         $data['body'] = json_decode(substr($buffer, self::HEAD_LEN+self::VERIFY_LEN), true);
         return $data;
     }

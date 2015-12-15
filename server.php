@@ -14,7 +14,7 @@ require_once 'Autoloader.php';
 define("dev", 1);
 
 //创建一个worker 使用应用层协议json
-$worker = new Worker("json://0.0.0.0:9191");
+$worker = new Worker("json://0.0.0.0:9797");
 
 // 启动4个进程对外提供服务
 $worker->count = 4;

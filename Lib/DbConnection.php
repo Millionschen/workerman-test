@@ -1,5 +1,8 @@
 <?php
 namespace workerman\Lib;
+use PDO;
+use Workerman\Util\MyLog;
+
 /**
  * 数据库连接类，依赖mysql_pdo扩展
  */
@@ -145,7 +148,7 @@ class DbConnection
 
     /**
      * PDO statement 实例
-     * @var PDO statement
+     * @var PDO sQuery
      */
     protected $sQuery;
 
@@ -166,6 +169,8 @@ class DbConnection
      * @var string
      */
     protected $lastSql = '';
+    private $succes;
+
     /**
      * 选择哪些列
      * @param string/array $cols
@@ -1558,6 +1563,7 @@ class DbConnection
     protected function execute($query,$parameters = "")
     {
         try {
+            MyLog::debug("[SQL] %s [DATA] %s", $this->lastSql, json_encode($parameters));
             $this->sQuery = $this->pdo->prepare($query);
             $this->bindMore($parameters);
             if(!empty($this->parameters)) {
@@ -1656,6 +1662,7 @@ class DbConnection
 
         $this->resetAll();
         $this->lastSql = $query;
+
 
         $this->execute($query,$params);
 
