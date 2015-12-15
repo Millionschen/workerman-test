@@ -34,4 +34,9 @@ class UserModel
         return $user;
     }
 
+    public function getUserList($index, $limit)
+    {
+        return null;
+    }
+
 }
