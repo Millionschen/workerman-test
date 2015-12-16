@@ -39,4 +39,9 @@ class UserModel
         return null;
     }
 
+    public function getUserArticle()
+    {
+
+    }
+
 }
