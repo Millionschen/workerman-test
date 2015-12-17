@@ -13,7 +13,6 @@ class CmdMap
     public static $bind = array(
         //0x00001000
         0x00001001 => 'getUserByName',
-
     );
 
 }
